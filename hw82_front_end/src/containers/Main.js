@@ -15,7 +15,6 @@ class Main extends Component {
     }
 
     selectChangeHandler = e => {
-        console.log(e.target.id, e.target.value);
         this.setState({
             [e.target.id]: e.target.value
         });
@@ -32,7 +31,6 @@ class Main extends Component {
     };
 
     render() {
-        console.log(this.props);
         return (
             <div className="App">
                 <h2 className="h2">First.FM</h2>

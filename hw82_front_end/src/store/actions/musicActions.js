@@ -19,7 +19,6 @@ export const getArtists = () => {
         return axios.get('/artists').then(
             response => {
                 dispatch(fetchArtistsSuccess(response.data));
-                console.log(response.data);
             });
     };
 };
@@ -29,7 +28,6 @@ export const getAlbums = () => {
         return axios.get('/albums').then(
             response => {
                 dispatch(fetchAlbumsSuccess(response.data));
-                console.log(response.data);
             });
     };
 };
@@ -39,7 +37,6 @@ export const getAlbum = (id) => {
         return axios.get('/albums/' + id).then(
             response => {
                 dispatch(fetchAlbumSuccess(response.data));
-                console.log(response.data);
             });
     };
 };
@@ -49,7 +46,6 @@ export const getTracks = () => {
         return axios.get('/tracks').then(
             response => {
                 dispatch(fetchTracksSuccess(response.data));
-                console.log(response.data);
             });
     };
 };
@@ -59,7 +55,6 @@ export const getTracksByArtist = artistId => {
         return axios.get('/tracks?artist='+artistId).then(
             response => {
                 dispatch(fetchTracksByArtistSuccess(response.data));
-                console.log(response.data);
             });
     };
 };
@@ -69,7 +64,6 @@ export const getTracksByAlbum = (albumId) => {
         return axios.get('/tracks?album='+albumId).then(
             response => {
                 dispatch(fetchTracksByAlbumSuccess(response.data));
-                console.log(response.data);
             });
     };
 };
@@ -78,17 +72,12 @@ export const createArtist = artistData => {
     return dispatch => {
         return axios.post('/artists', artistData).then(
             response => {
-                console.log(response.data);
             });
     };
 };
 
 export const createAlbum = albumData => {
     return dispatch => {
-        console.log(albumData);
-        return axios.post('/albums', albumData).then(
-            response => {
-                console.log(response.data);
-            });
+        return axios.post('/albums', albumData);
     };
 };

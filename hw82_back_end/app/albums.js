@@ -50,7 +50,6 @@ router.get('/:id', (req, res) => {
 
 router.post('/', upload.single('image'), (req, res) => {
     const albumData = req.body;
-    console.log(albumData);
 
     if (req.file) {
         albumData.image = req.file.filename;
@@ -58,10 +57,7 @@ router.post('/', upload.single('image'), (req, res) => {
     const album = new Album(albumData);
     album.save()
         .then(result => res.send(result))
-        .catch(error => {
-            res.status(400).send(error);
-                console.log(error);
-        });
+        .catch(error => res.status(400).send(error));
 });
 
 module.exports = router;
